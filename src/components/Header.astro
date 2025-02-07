@@ -1,0 +1,41 @@
+---
+import { Icon } from 'astro-icon/components'
+import Hamburger from './Hamburger.astro'
+
+const currentPath = Astro.url.pathname
+---
+
+<header id='page-header' class='navbar bg-neutral fixed top-0 bottom-auto z-50'>
+	<div class='navbar-start'>
+		<Hamburger />
+	</div>
+	<div class='navbar-end'>
+		<a href='' class='btn btn-ghost text-primary text-xl'>Southern MN TCT</a>
+		<Icon name='tct_logo' class='text-4xl' />
+	</div>
+</header>
+
+<!-- <script define:vars={{ currentPath }}>
+	const header = document.querySelector('#page-header')
+	const logoBtn = document.querySelector('#logo-btn')
+	const modalBtn = document.querySelector('#modal-btn')
+	const page = document.documentElement
+
+	// Display unique positioning / behavior for navbar on homepage
+	if (currentPath === '/') {
+		header.classList.remove('fixed-header')
+		header.classList.add('bg-transparent')
+		logoBtn.classList.add('hidden')
+
+		document.addEventListener('scroll', () => {
+			const d = page.clientHeight - page.scrollTop - header.offsetHeight
+			if (d < 0) {
+				header.classList.replace('bg-transparent', 'bg-neutral')
+				logoBtn.classList.replace('hidden', 'flex')
+			} else {
+				header.classList.replace('bg-neutral', 'bg-transparent')
+				logoBtn.classList.replace('flex', 'hidden')
+			}
+		})
+	}
+</script> -->

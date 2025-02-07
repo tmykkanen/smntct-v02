@@ -1,0 +1,38 @@
+---
+interface Props {
+	img?: string
+	overlay?: boolean
+	id: string
+}
+
+const { img, overlay = false, id } = Astro.props
+const imgUrl = `url(${img})`
+---
+
+<div
+	class:list={[
+		'grid min-h-screen min-w-screen place-items-center bg-cover bg-center',
+		[overlay && 'bg-[url:var(--img-url)]']
+	]}
+	style={{ '--img-url': imgUrl }}
+	id={id}
+>
+	<!-- Overlay div -->
+	{overlay && <div class='bg-neutral col-start-1 row-start-1 h-screen w-screen opacity-50' />}
+
+	<div
+		class:list={[
+			'prose prose-pre:font-light prose-pre:italic prose-pre:text-wrap prose-pre:font-sans prose-pre:text-2xl prose-pre:bg-transparent prose-p:text-2xl prose-p:font-light prose-h2:text-5xl prose-h2:font-bold prose-h1:text-5xl prose-a:no-underline prose-a:font-bold prose-a:bg-[url(/src/icons/1x2-00adb5ff.png)] prose-a:bg-repeat-x prose-a:bg-[left_95%] prose-a:hover:bg-accent prose-a:hover:rounded-lg prose-pre:text-neutral-300 z-0 col-start-1 row-start-1 flex items-center justify-center gap-4 p-4',
+			[
+				overlay &&
+					'prose-h1:text-primary prose-a:text-primary prose-a:bg-[url(/src/icons/1x4-00adb5ff.png)] text-center'
+			]
+		]}
+		x-data
+		x-intersect:enter='$el.classList.add("fadeInUp")'
+	>
+		<div class='max-w[40ch] sm:max-w[65ch]'>
+			<slot />
+		</div>
+	</div>
+</div>

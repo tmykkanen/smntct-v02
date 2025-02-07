@@ -1,9 +1,60 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import HeroContainer from '../components/HeroContainer.astro'
+import HeroContent from '../components/HeroContent.astro'
+import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout>
-  <div class='prose'>
-    <h1 class='text-4xl'>Hello world!</h1>
-  </div>
+	<HeroContainer id='welcome' img='/images/ivan-bandura-XsAz9Mq61XY-unsplash.jpg' overlay>
+		<h1>
+			Filling Southern MN with healthy churches
+			<a href='#imaginary-1'>for the next 100 years.</a>
+		</h1>
+	</HeroContainer>
+	<HeroContainer id='imaginary-1'>
+		<HeroContent>
+			<h2 slot='heading'>Jesus is decidedly unstrategic.</h2>
+			<p slot='body'>
+				He came to the sound of angels singing and then spent the next thirty years learning
+				carpentry. Even during his public ministry, he spent most of his time going at a slow pace
+				in a small place. This is unstrategic not because there was no plan, but because the plan
+				doesn’t make sense! Yet the madness of this plan is exactly how God chose to display the
+				upside-down nature of his Kingdom. Jesus won by dying. Jesus chose two women to witness the
+				resurrection. Jesus built his church on the preaching of one of his betrayers. Jesus' plan
+				is beautiful—but mad. <a href='#imaginary-2'>Believing it takes imagination.</a>
+			</p>
+		</HeroContent>
+	</HeroContainer>
+	<HeroContainer id='imaginary-2'>
+		<HeroContent>
+			<h2 slot='heading'>Many view rural ministry as unstrategic.</h2>
+			<div slot='body'>
+				<p>
+					Yet we believe rural ministry presents a unique opportunity to display the very
+					upside-down gospel we proclaim. Going at a slow pace in a small place as we win by dying
+					embodies the gospel logic of John 12:24:
+					<em>
+						“Truly, truly, I say to you, unless a grain of wheat falls into the earth and dies, it
+						remains alone; but if it dies, it bears much fruit."
+					</em>
+					The slowness and smallness of this kind of ministry requires a certain kind of <strong
+						>gospel imaginary</strong
+					> from those who pastor here. It’s the kind of imaginary Wendell Berry calls for in his poem
+					<em>Manifesto: The Mad Farmer Liberation Front:</em>
+				</p>
+				<!-- prose-pre:text-left prose-pre:text-base-300 prose-pre:text-2xl prose-pre:font-light prose-pre:bg-transparent prose-pre:font-sans prose-pre:mt-7 prose-pre:mb-7 prose-pre:italic' -->
+				<pre>So, friends, every day do something
+that won’t compute....
+Invest in the millennium. Plant sequoias.
+Say that your main crop is the forest
+that you did not plant,
+that you will not live to harvest.</pre>
+				<p>
+					We’ve caught this madness. And out of this gospel madness flows <a href='#vision'
+						>our 100 year vision.</a
+					>
+				</p>
+			</div>
+		</HeroContent>
+	</HeroContainer>
 </Layout>

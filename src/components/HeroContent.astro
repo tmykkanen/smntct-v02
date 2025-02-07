@@ -1,0 +1,12 @@
+<div>
+	<div x-data x-intersect:enter='$el.classList.add("slide-in-focus-right")'>
+		<h2>
+			<slot name='heading' />
+		</h2>
+	</div>
+	<div x-data x-intersect:enter='$el.classList.add("slide-in-focus-right-slow")'>
+		<p>
+			<slot name='body' />
+		</p>
+	</div>
+</div>

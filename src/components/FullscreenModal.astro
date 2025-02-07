@@ -1,0 +1,61 @@
+---
+import { Icon } from 'astro-icon/components'
+import navData from '../data/navData.js'
+---
+
+<!-- You can open the modal using ID.showModal() method -->
+<dialog id='navMenu' class='modal'>
+	<div class='modal-box bg-neutral size-full max-h-screen max-w-screen rounded-none'>
+		<div>
+			<form method='dialog'>
+				<button class='btn btn-sm btn-circle btn-ghost text-primary absolute top-2 right-2'>
+					<span class='sr-only'>Close</span>
+					<svg
+						class='size-4 shrink-0'
+						xmlns='http://www.w3.org/2000/svg'
+						width='24'
+						height='24'
+						viewBox='0 0 24 24'
+						fill='none'
+						stroke='currentColor'
+						stroke-width='2'
+						stroke-linecap='round'
+						stroke-linejoin='round'
+					>
+						<path d='M18 6 6 18'></path>
+						<path d='m6 6 12 12'></path>
+					</svg>
+				</button>
+			</form>
+			<h3 class='text-primary'>
+				<a class='btn btn-ghost text-2xl' href='/'>
+					<Icon name='tct_logo' class='text-4xl' />
+					Southern MN TCT
+				</a>
+			</h3>
+		</div>
+		<div class='text-primary overflow-y-auto p-4'>
+			<ul class='menu'>
+				{
+					navData.map((item) => (
+						<li>
+							<a href={item.path} class='text-2xl'>
+								{item.name}
+							</a>
+							<ul>
+								{item.submenu &&
+									item.submenu.map((subitem) => (
+										<li>
+											<a href={subitem.path} class='text-xl'>
+												{subitem.name}
+											</a>
+										</li>
+									))}
+							</ul>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</div>
+</dialog>
