@@ -27,7 +27,7 @@ console.log(mapHeight);
 </div>
 
 <script define:vars={{ data }}>
-	window.addEventListener('load', () => {
+	document.addEventListener('astro:page-load', () => {
 		(function () {
 			const map = L.map('hs-grayscale-leaflet', {
 				center: [44.05937461400064, -93.38859819147521],

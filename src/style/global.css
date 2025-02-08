@@ -42,7 +42,7 @@
 
 @theme {
 	--default-font-family: 'Source Sans 3', 'sans-serif';
-	--animate-fadeInUp: fadeInUp 0.5s;
+	/* --animate-fadeInUp: fadeInUp 0.5s;
 	--animate-fadeInUp-slow: fadeInUp 0.8s;
 	@keyframes fadeInUp {
 		0% {
@@ -82,7 +82,7 @@
 			transform: translateX(0);
 			opacity: 1;
 		}
-	}
+	} */
 }
 
 // Daisyui Overrides
