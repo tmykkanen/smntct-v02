@@ -8,7 +8,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
 	<HeroContainer id='welcome' img='/images/ivan-bandura-XsAz9Mq61XY-unsplash.jpg' overlay>
-		<h1>
+		<h1 x-data x-intersect:enter='$el.classList.add("animate-fly-up")'>
 			Filling Southern MN with healthy churches
 			<a href='#imaginary-1' class='font-bold'>for the next 100 years.</a>
 		</h1>

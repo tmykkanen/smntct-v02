@@ -1,4 +1,5 @@
 ---
+import DevHeader from '../components/DevHeader.astro';
 import FullscreenModal from '../components/FullscreenModal.astro';
 import Header from '../components/Header.astro';
 import '../style/global.css';
@@ -51,6 +52,7 @@ const pageFadeUp = {
 	</head>
 	<body class='overflow-x-hidden'>
 		<Header />
+		<!-- <DevHeader /> -->
 		<FullscreenModal />
 		<slot />
 	</body>

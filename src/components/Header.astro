@@ -13,7 +13,7 @@ const currentPath = Astro.url.pathname;
 		[currentPath === '/' ? 'bg-transparent' : 'bg-neutral']
 	]}
 >
-	<div class='navbar-start'>
+	<div class='navbar-start' x-data x-intersect:enter='$el.classList.add("animate-fade-in")'>
 		<Hamburger />
 	</div>
 	<div id='logo-btn' class:list={['navbar-end', [currentPath === '/' && 'hidden']]}>
