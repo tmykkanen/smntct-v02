@@ -41,7 +41,48 @@
 }
 
 @theme {
-	--font-sans: 'Source Sans 3', 'sans-serif';
+	--default-font-family: 'Source Sans 3', 'sans-serif';
+	--animate-fadeInUp: fadeInUp 0.5s;
+	--animate-fadeInUp-slow: fadeInUp 0.8s;
+	@keyframes fadeInUp {
+		0% {
+			filter: blur(12px);
+			opacity: 0;
+			transform: translateY(20%);
+		}
+		100% {
+			filter: blur(0px);
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	--animate-blur-in: blur-in 1s;
+	@keyframes blur-in {
+		0% {
+			filter: blur(12px);
+			opacity: 0;
+		}
+		100% {
+			filter: blur(0px);
+			opacity: 1;
+		}
+	}
+	--animate-slide-in-focus-right: slide-in-focus-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+		both;
+	--animate-slide-in-focus-right-slow: slide-in-focus-right 0.8s
+		cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	@keyframes slide-in-focus-right {
+		0% {
+			filter: blur(12px);
+			transform: translateX(-20%);
+			opacity: 0;
+		}
+		100% {
+			filter: blur(0px);
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
 }
 
 // Daisyui Overrides

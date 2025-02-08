@@ -2,7 +2,7 @@
 import FullscreenModal from '../components/FullscreenModal.astro';
 import Header from '../components/Header.astro';
 import '../style/global.css';
-import '@fontsource-variable/source-sans-3';
+// import '@fontsource-variable/source-sans-3';
 ---
 
 <!doctype html>
@@ -15,6 +15,12 @@ import '@fontsource-variable/source-sans-3';
 		<title>Southern MN TCT</title>
 		<link rel='stylesheet' href='/styles/leaflet.css' />
 		<script is:inline src='/js/leaflet.js'></script>
+		<link rel='preconnect' href='https://fonts.googleapis.com' />
+		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+		<link
+			href='https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap'
+			rel='stylesheet'
+		/>
 	</head>
 	<body class='overflow-x-hidden'>
 		<Header />

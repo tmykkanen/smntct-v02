@@ -11,7 +11,7 @@ const { id, data, featureSide } = Astro.props as Props;
 ---
 
 <div class='bg-secondary grid min-h-screen w-full place-items-center bg-cover bg-center' id={id}>
-	<div class='grid max-w-[90%] gap-12 py-12 md:grid-cols-2'>
+	<div class='my-24 grid max-w-[90%] gap-12 md:grid-cols-2'>
 		<!-- Heading -->
 		<div
 			class:list={[
@@ -19,7 +19,7 @@ const { id, data, featureSide } = Astro.props as Props;
 				[featureSide === 'left' && 'order-1 md:order-2']
 			]}
 			x-data
-			x-intersect:enter='$el.classList.add("fadeInUp")'
+			x-intersect:enter='$el.classList.add("animate-fadeInUp")'
 		>
 			<h2 class='text-3xl font-bold lg:text-5xl'>
 				<slot name='heading' />
@@ -34,7 +34,7 @@ const { id, data, featureSide } = Astro.props as Props;
 				[featureSide === 'left' && 'order-2 md:order-1']
 			]}
 			x-data
-			x-intersect:enter='$el.classList.add("fadeInUp-slow")'
+			x-intersect:enter='$el.classList.add("animate-fadeInUp-slow")'
 		>
 			{
 				data.map((item: any) => (
