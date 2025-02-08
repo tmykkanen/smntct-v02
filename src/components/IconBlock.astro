@@ -1,14 +1,16 @@
 ---
 interface Props {
-	iconName: string
-	titlePre: string
-	title: string
-	description: string
-	link?: string
+	iconName: string;
+	titlePre: string;
+	title: string;
+	description: string;
+	link?: string;
 }
 
-import { Icon } from 'astro-icon/components'
-const { iconName, titlePre, title, description, link } = Astro.props as Props
+import { Icon } from 'astro-icon/components';
+const { iconName, titlePre, title, description, link } = Astro.props as Props;
+
+// TODO: Add responsive styling for small screens - pretext and text on two different lines
 ---
 
 <div class='prose grow'>
