@@ -1,14 +1,23 @@
 ---
-import { Icon } from 'astro-icon/components'
-import navData from '../data/navData.js'
+import { Icon } from 'astro-icon/components';
+import navData from '../data/navData.js';
 ---
 
 <!-- You can open the modal using ID.showModal() method -->
 <dialog id='navMenu' class='modal'>
-	<div class='modal-box bg-neutral size-full max-h-screen max-w-screen rounded-none'>
-		<div>
+	<div class='modal-box bg-neutral size-full max-h-screen max-w-screen rounded-none px-0 py-0'>
+		<div class='flex items-center justify-between border-b border-b-neutral-200 px-4 py-3'>
+			<h3>
+				<a class='btn btn-ghost text-primary text-2xl' href='/'>
+					<Icon name='tct_logo' class='text-4xl' />
+					Southern MN TCT
+				</a>
+			</h3>
+
+			<!-- Close Btn -->
 			<form method='dialog'>
-				<button class='btn btn-sm btn-circle btn-ghost text-primary absolute top-2 right-2'>
+				<!-- <button class='btn btn-sm btn-circle btn-ghost text-primary absolute top-7 right-3'> -->
+				<button class='btn btn-xs btn-circle btn-ghost text-primary'>
 					<span class='sr-only'>Close</span>
 					<svg
 						class='size-4 shrink-0'
@@ -27,26 +36,31 @@ import navData from '../data/navData.js'
 					</svg>
 				</button>
 			</form>
-			<h3 class='text-primary'>
-				<a class='btn btn-ghost text-2xl' href='/'>
-					<Icon name='tct_logo' class='text-4xl' />
-					Southern MN TCT
-				</a>
-			</h3>
+			<!-- Close Btn -->
 		</div>
+
+		<!-- Menu -->
 		<div class='text-primary overflow-y-auto p-4'>
 			<ul class='menu'>
 				{
 					navData.map((item) => (
 						<li>
-							<a href={item.path} class='text-2xl'>
+							<a
+								href={item.path}
+								class='text-primary btn btn-ghost justify-start text-2xl font-normal'
+								onclick='navMenu.close()'
+							>
 								{item.name}
 							</a>
 							<ul>
 								{item.submenu &&
 									item.submenu.map((subitem) => (
 										<li>
-											<a href={subitem.path} class='text-xl'>
+											<a
+												href={subitem.path}
+												class='text-primary btn btn-ghost justify-start text-xl font-normal'
+												onclick='navMenu.close()'
+											>
 												{subitem.name}
 											</a>
 										</li>
@@ -57,5 +71,20 @@ import navData from '../data/navData.js'
 				}
 			</ul>
 		</div>
+		<!-- End Menu -->
 	</div>
 </dialog>
+
+<!-- <script>
+	import { HSAccordion, HSOverlay } from 'preline';
+
+	const page = document.documentElement;
+	const links = page.querySelectorAll('li > a');
+
+	links.forEach((element) => {
+		element.addEventListener('click', () => {
+			console.log('close');
+			HSOverlay.close('#hs-full-screen-modal');
+		});
+	});
+</script> -->

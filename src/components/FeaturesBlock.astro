@@ -1,0 +1,53 @@
+---
+interface Props {
+	id: string;
+	data: Object[];
+	featureSide: 'left' | 'right';
+}
+
+import IconBlock from './IconBlock.astro';
+
+const { id, data, featureSide } = Astro.props as Props;
+---
+
+<div class='bg-secondary grid min-h-screen w-full place-items-center bg-cover bg-center' id={id}>
+	<div class='grid max-w-[90%] gap-12 py-12 md:grid-cols-2'>
+		<!-- Heading -->
+		<div
+			class:list={[
+				'prose prose-h2:text-5xl prose-h2:font-bold z-0 flex max-w-[40ch] items-center gap-4 py-4 md:max-w-[65ch] md:justify-center md:px-4 md:text-center',
+				[featureSide === 'left' && 'order-1 md:order-2']
+			]}
+			x-data
+			x-intersect:enter='$el.classList.add("fadeInUp")'
+		>
+			<h2 class='text-3xl font-bold lg:text-5xl'>
+				<slot name='heading' />
+			</h2>
+		</div>
+		<!-- End Heading -->
+
+		<!-- Icon Block -->
+		<div
+			class:list={[
+				'mx-auto my-auto max-w-[40ch] space-y-6 sm:max-w-[65ch] lg:space-y-10',
+				[featureSide === 'left' && 'order-2 md:order-1']
+			]}
+			x-data
+			x-intersect:enter='$el.classList.add("fadeInUp-slow")'
+		>
+			{
+				data.map((item: any) => (
+					<IconBlock
+						titlePre={item.titlePre}
+						title={item.title}
+						description={item.description}
+						iconName={item.icon}
+						link={item.link}
+					/>
+				))
+			}
+		</div>
+		<!-- End Icon Block -->
+	</div>
+</div>

@@ -1,0 +1,41 @@
+---
+import FeaturesBlock from '../components/FeaturesBlock.astro'
+import HeroContainer from '../components/HeroContainer.astro'
+import HeroContent from '../components/HeroContent.astro'
+import strategyData from '../data/strategyData.js'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout>
+	<FeaturesBlock data={strategyData} id='strategy' featureSide='right'>
+		<Fragment slot='heading'>Our Strategy</Fragment>
+	</FeaturesBlock>
+
+	<HeroContainer id='fellowship'>
+		<HeroContent>
+			<h2 slot='heading'>Monthly Pastoral Fellowship</h2>
+			<p slot='body'>Coming Soon! <a href='#strategy'>Back to top.</a></p>
+		</HeroContent>
+	</HeroContainer>
+
+	<HeroContainer id='internship'>
+		<HeroContent>
+			<h2 slot='heading'>Summer Pastoral Internships</h2>
+			<p slot='body'><a href='/internship'>Click here for details</a></p>
+		</HeroContent>
+	</HeroContainer>
+
+	<HeroContainer id='residencies'>
+		<HeroContent>
+			<h2 slot='heading'>Pastoral Residencies</h2>
+			<p slot='body'>Coming Soon! <a href='#strategy'>Back to top.</a></p>
+		</HeroContent>
+	</HeroContainer>
+
+	<HeroContainer id='events'>
+		<HeroContent>
+			<h2 slot='heading'>Periodic Training Events</h2>
+			<p slot='body'>Coming Soon! <a href='#strategy'>Back to top.</a></p>
+		</HeroContent>
+	</HeroContainer>
+</Layout>

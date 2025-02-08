@@ -1,12 +1,15 @@
 ---
-const currentPath = Astro.url.pathname
+const currentPath = Astro.url.pathname;
 ---
 
 <div
 	id='modal-btn'
 	tabindex='0'
 	role='button'
-	class='btn btn-ghost text-primary'
+	class:list={[
+		'btn rounded-lg',
+		[currentPath === '/' ? 'btn-primary [&:not(:hover)]:opacity-50' : 'text-primary btn-ghost']
+	]}
 	onclick='navMenu.showModal()'
 >
 	<svg

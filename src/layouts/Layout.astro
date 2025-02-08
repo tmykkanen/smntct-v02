@@ -1,9 +1,8 @@
 ---
-import FullscreenModal from '../components/FullscreenModal.astro'
-import Header from '../components/Header.astro'
-import TestModal from '../components/TestModal.astro'
-import '../style/global.css'
-import '@fontsource-variable/source-sans-3'
+import FullscreenModal from '../components/FullscreenModal.astro';
+import Header from '../components/Header.astro';
+import '../style/global.css';
+import '@fontsource-variable/source-sans-3';
 ---
 
 <!doctype html>
@@ -14,19 +13,21 @@ import '@fontsource-variable/source-sans-3'
 		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 		<meta name='generator' content={Astro.generator} />
 		<title>Southern MN TCT</title>
+		<link rel='stylesheet' href='/styles/leaflet.css' />
+		<script is:inline src='/js/leaflet.js'></script>
 	</head>
-	<body>
+	<body class='overflow-x-hidden'>
 		<Header />
 		<FullscreenModal />
 		<slot />
 	</body>
 </html>
 
-<!-- <style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style> -->
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

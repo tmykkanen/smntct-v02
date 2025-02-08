@@ -1,0 +1,46 @@
+---
+import FeaturesBlock from '../components/FeaturesBlock.astro';
+import HeroContainer from '../components/HeroContainer.astro';
+import HeroContent from '../components/HeroContent.astro';
+import Layout from '../layouts/Layout.astro';
+
+import internshipData from '../data/internshipData.js';
+const { features, benefits } = internshipData;
+---
+
+<Layout>
+	<HeroContainer id='internship-overview'>
+		<HeroContent>
+			<h2 slot='heading'>Our summer internship is all about catching a Gospel Imaginary.</h2>
+			<p slot='body'>
+				We want to give you a taste of our shared convictions and help you think through further
+				ministry training and partnership in Soutnern MN. <a href='#features'
+					>Interested? Scroll down to learn more.</a
+				>
+			</p>
+		</HeroContent>
+	</HeroContainer>
+
+	<FeaturesBlock id='features' data={features} featureSide='right'>
+		<Fragment slot='heading'>The Summer Internship is</Fragment>
+	</FeaturesBlock>
+
+	<FeaturesBlock id='benefits' data={benefits} featureSide='left'>
+		<Fragment slot='heading'>Five Reasons to Consider the Internship</Fragment>
+	</FeaturesBlock>
+
+	<!-- TODO: Finish Timeline -->
+	<!-- <Timeline /> -->
+
+	<HeroContainer id='apply'>
+		<HeroContent>
+			<h2 slot='heading'>To Apply</h2>
+			<p slot='body'>
+				Contact pastor Tyler Mykkanen at Sojourners Church (Albert Lea, MN) at
+				<a href='tel:507-552-1595'>(507) 552-1595</a> or <a href='mailto:hello@smntct.org'
+					>hello@smntct.org</a
+				>.
+			</p>
+		</HeroContent>
+	</HeroContainer>
+</Layout>

@@ -1,19 +1,56 @@
 ---
-import { Icon } from 'astro-icon/components'
-import Hamburger from './Hamburger.astro'
+import { Icon } from 'astro-icon/components';
+import Hamburger from './Hamburger.astro';
 
-const currentPath = Astro.url.pathname
+const currentPath = Astro.url.pathname;
 ---
 
-<header id='page-header' class='navbar bg-neutral fixed top-0 bottom-auto z-50'>
+<!-- <header id='page-header' class='navbar bg-neutral fixed top-0 bottom-auto z-50'> -->
+<header
+	id='page-header'
+	class:list={[
+		'navbar fixed top-0 bottom-auto z-50',
+		[currentPath === '/' ? 'bg-transparent' : 'bg-neutral']
+	]}
+>
 	<div class='navbar-start'>
 		<Hamburger />
 	</div>
-	<div class='navbar-end'>
-		<a href='' class='btn btn-ghost text-primary text-xl'>Southern MN TCT</a>
-		<Icon name='tct_logo' class='text-4xl' />
+	<div id='logo-btn' class:list={['navbar-end', [currentPath === '/' && 'hidden']]}>
+		<a href='/' class='btn btn-ghost text-primary text-xl'>
+			Southern MN TCT
+			<Icon name='tct_logo' class='text-primary text-4xl' />
+		</a>
 	</div>
 </header>
+
+<script define:vars={{ currentPath }}>
+	const header = document.querySelector('#page-header');
+	const logoBtn = document.querySelector('#logo-btn');
+	const modalBtn = document.querySelector('#modal-btn');
+	const page = document.documentElement;
+
+	if (currentPath === '/') {
+		document.addEventListener('scroll', () => {
+			const d = page.clientHeight - page.scrollTop - header.offsetHeight;
+			if (d < 0) {
+				header.classList.replace('bg-transparent', 'bg-neutral');
+				logoBtn.classList.remove('hidden');
+				modalBtn.classList.remove('btn-primary', '[&:not(:hover)]:opacity-50');
+				modalBtn.classList.add('text-primary', 'btn-ghost');
+			} else {
+				header.classList.replace('bg-neutral', 'bg-transparent');
+				logoBtn.classList.add('hidden');
+				modalBtn.classList.add('btn-primary', '[&:not(:hover)]:opacity-50');
+				modalBtn.classList.remove('text-primary', 'btn-ghost');
+			}
+		});
+	}
+</script>
+
+<!-- 
+[currentPath === '/' ? 'btn-primary [&:not(:hover)]:opacity-75' : 'text-primary btn-ghost']
+-->
 
 <!-- <script define:vars={{ currentPath }}>
 	const header = document.querySelector('#page-header')

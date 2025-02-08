@@ -1,14 +1,16 @@
 ---
-import HeroContainer from '../components/HeroContainer.astro'
-import HeroContent from '../components/HeroContent.astro'
-import Layout from '../layouts/Layout.astro'
+import FeaturesBlock from '../components/FeaturesBlock.astro';
+import HeroContainer from '../components/HeroContainer.astro';
+import HeroContent from '../components/HeroContent.astro';
+import visionData from '../data/visionData.js';
+import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
 	<HeroContainer id='welcome' img='/images/ivan-bandura-XsAz9Mq61XY-unsplash.jpg' overlay>
 		<h1>
 			Filling Southern MN with healthy churches
-			<a href='#imaginary-1'>for the next 100 years.</a>
+			<a href='#imaginary-1' class='font-bold'>for the next 100 years.</a>
 		</h1>
 	</HeroContainer>
 	<HeroContainer id='imaginary-1'>
@@ -57,4 +59,11 @@ that you will not live to harvest.</pre>
 			</div>
 		</HeroContent>
 	</HeroContainer>
+
+	<FeaturesBlock id='vision' data={visionData} featureSide='right'>
+		<Fragment slot='heading'>
+			Over the next 100 years, we aim to start and strengthen churches in Southern MN that share a
+			Gospel Imaginary.
+		</Fragment>
+	</FeaturesBlock>
 </Layout>
