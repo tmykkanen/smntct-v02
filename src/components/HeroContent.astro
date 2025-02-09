@@ -1,10 +1,5 @@
 <div>
-	<div
-		x-data='{ show: false}'
-		x-intersect:enter='show = true'
-		x-intersect:leave.threshold.full='show = false'
-		:class="show ? 'animate-fly-left' : 'animate-fly-out'"
-	>
+	<div x-data='{ show: false}' x-intersect:enter='show = true' :class="show && 'animate-fly-left'">
 		<h2>
 			<slot name='heading' />
 		</h2>
@@ -13,8 +8,7 @@
 	<div
 		x-data='{ show: false}'
 		x-intersect:enter='show = true'
-		x-intersect:leave.threshold.15='show = false'
-		:class="show ? 'animate-fly-left-slow' : 'animate-fly-out-slow'"
+		:class="show && 'animate-fly-left-slow'"
 	>
 		<p>
 			<slot name='body' />

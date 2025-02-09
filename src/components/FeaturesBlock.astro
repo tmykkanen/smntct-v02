@@ -34,7 +34,7 @@ const { id, data, featureSide } = Astro.props as Props;
 				[featureSide === 'left' && 'order-2 md:order-1']
 			]}
 			x-data
-			x-intersect:enter='$el.classList.add("animate-fadeInUp-slow")'
+			x-intersect:enter='$el.classList.add("animate-tracking-in-contract")'
 		>
 			{
 				data.map((item: any) => (
