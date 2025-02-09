@@ -1,10 +1,21 @@
 <div>
-	<div x-data x-intersect:enter='$el.classList.add("animate-fly-left")'>
+	<div
+		x-data='{ show: false}'
+		x-intersect:enter='show = true'
+		x-intersect:leave.threshold.full='show = false'
+		:class="show ? 'animate-fly-left' : 'animate-fly-out'"
+	>
 		<h2>
 			<slot name='heading' />
 		</h2>
 	</div>
-	<div x-data x-intersect:enter='$el.classList.add("animate-fly-left-longer")'>
+	<!-- <div x-data x-intersect:enter='$el.classList.add("animate-fly-left-slow")'> -->
+	<div
+		x-data='{ show: false}'
+		x-intersect:enter='show = true'
+		x-intersect:leave.threshold.15='show = false'
+		:class="show ? 'animate-fly-left-slow' : 'animate-fly-out-slow'"
+	>
 		<p>
 			<slot name='body' />
 		</p>
