@@ -5,7 +5,6 @@ import Hamburger from './Hamburger.astro';
 const currentPath = Astro.url.pathname;
 ---
 
-<!-- <header id='page-header' class='navbar bg-neutral fixed top-0 bottom-auto z-50'> -->
 <header
 	id='page-header'
 	class:list={[
@@ -48,31 +47,3 @@ const currentPath = Astro.url.pathname;
 	}
 </script>
 
-<!-- 
-[currentPath === '/' ? 'btn-primary [&:not(:hover)]:opacity-75' : 'text-primary btn-ghost']
--->
-
-<!-- <script define:vars={{ currentPath }}>
-	const header = document.querySelector('#page-header')
-	const logoBtn = document.querySelector('#logo-btn')
-	const modalBtn = document.querySelector('#modal-btn')
-	const page = document.documentElement
-
-	// Display unique positioning / behavior for navbar on homepage
-	if (currentPath === '/') {
-		header.classList.remove('fixed-header')
-		header.classList.add('bg-transparent')
-		logoBtn.classList.add('hidden')
-
-		document.addEventListener('scroll', () => {
-			const d = page.clientHeight - page.scrollTop - header.offsetHeight
-			if (d < 0) {
-				header.classList.replace('bg-transparent', 'bg-neutral')
-				logoBtn.classList.replace('hidden', 'flex')
-			} else {
-				header.classList.replace('bg-neutral', 'bg-transparent')
-				logoBtn.classList.replace('flex', 'hidden')
-			}
-		})
-	}
-</script> -->

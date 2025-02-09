@@ -5,7 +5,6 @@ interface Props {
 }
 
 const { data, fullscreen } = Astro.props;
-console.log(fullscreen);
 
 let mapHeight;
 if (fullscreen) {
@@ -13,8 +12,6 @@ if (fullscreen) {
 } else {
 	mapHeight = '70%';
 }
-
-console.log(mapHeight);
 ---
 
 <div
@@ -22,7 +19,7 @@ console.log(mapHeight);
 	class='hs-leaflet z-10 m-auto h-[var(--map-height)]'
 	style={{ '--map-height': mapHeight }}
 	x-data
-	x-intersect:enter='$el.classList.add("animate-blur-in")'
+	x-intersect:enter='$el.classList.add("animate-fade-in")'
 >
 </div>
 

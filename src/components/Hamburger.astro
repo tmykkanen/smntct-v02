@@ -23,32 +23,3 @@ const currentPath = Astro.url.pathname;
 		></path>
 	</svg>
 </div>
-
-<!-- <script define:vars={{ currentPath }}>
-	const modalBtn = document.querySelector('#modal-btn')
-	const header = document.querySelector('#page-header')
-	const page = document.documentElement
-
-	// Display unique positioning / behavior for navbar on homepage
-	if (currentPath === '/') {
-		modalBtn.classList.replace('btn-ghost', 'btn-primary')
-		modalBtn.classList.remove('text-primary')
-		modalBtn.classList.add('bg-opacity-50')
-
-		document.addEventListener('scroll', () => {
-			const d = page.clientHeight - page.scrollTop - header.offsetHeight
-			if (d < 0) {
-				modalBtn.classList.replace('btn-primary', 'btn-ghost')
-				modalBtn.classList.add('text-primary')
-				modalBtn.classList.remove('bg-opacity-50')
-			} else {
-				modalBtn.classList.replace('btn-ghost', 'btn-primary')
-				modalBtn.classList.remove('text-primary')
-				modalBtn.classList.add('bg-opacity-50')
-			}
-
-			// modalBtn.classList.toggle('btn-ghost', d < 0);
-			// modalBtn.classList.toggle('text-primary', d < 0);
-		})
-	}
-</script> -->

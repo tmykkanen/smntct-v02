@@ -41,6 +41,7 @@
 }
 
 @theme {
+	/* FONT IMPORT */
 	--default-font-family: 'Source Sans 3', 'sans-serif';
 
 	/* FLY LEFT */
@@ -108,6 +109,7 @@
 	}
 
 	/* FADE IN */
+	--animate-fade-in: fadeIn 1s cubic-bezier(0.22, 0.61, 0.36, 1);
 	@keyframes fadeIn {
 		0% {
 			filter: blur(8px);
@@ -118,7 +120,7 @@
 	}
 }
 
-// Daisyui Overrides
+/* DAISY UI OVERRIDES */
 .btn-ghost:hover {
 }
 
