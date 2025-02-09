@@ -19,7 +19,9 @@ const { id, data, featureSide } = Astro.props as Props;
 				[featureSide === 'left' && 'order-1 md:order-2']
 			]}
 			x-data
-			x-intersect:enter='$el.classList.add("animate-fadeInUp")'
+			x-intersect:enter={featureSide === 'left'
+				? "$el.classList.add('animate-fly-right-slow')"
+				: "$el.classList.add('animate-fly-left-slow')"}
 		>
 			<h2 class='text-3xl font-bold lg:text-5xl'>
 				<slot name='heading' />
@@ -34,7 +36,7 @@ const { id, data, featureSide } = Astro.props as Props;
 				[featureSide === 'left' && 'order-2 md:order-1']
 			]}
 			x-data
-			x-intersect:enter='$el.classList.add("animate-tracking-in-contract")'
+			x-intersect:enter='$el.classList.add("animate-fly-up-slow")'
 		>
 			{
 				data.map((item: any) => (

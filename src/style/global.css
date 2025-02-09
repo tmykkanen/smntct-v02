@@ -42,27 +42,12 @@
 
 @theme {
 	--default-font-family: 'Source Sans 3', 'sans-serif';
+
+	/* FLY LEFT */
 	--animate-fly-left: flyLeft 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
 		fadeIn 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
 	--animate-fly-left-slow: flyLeft 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
 		fadeIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
-
-	--animate-fly-right: flyRight 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
-		fadeIn 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
-	--animate-fly-right-slow: flyRight 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
-		fadeIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
-
-	--animate-fly-out: flyOut 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) both,
-		fadeOut 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
-	--animate-fly-out-slow: flyOut 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both,
-		fadeOut 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
-
-	--animate-fly-up: flyUp 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.27),
-		fadeIn 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-	--animate-fly-down: flyDown 0.4s 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.27) both,
-		fadeIn 0.4s 0.2s cubic-bezier(0.22, 0.61, 0.36, 1) both;
-	--animate-fade-in: fadeIn 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-
 	@keyframes flyLeft {
 		0% {
 			opacity: 0;
@@ -70,29 +55,59 @@
 		}
 		100% {
 			opacity: 1;
-			transform: translateX(0);
+			transform: translateX(0px);
 		}
 	}
-	@keyframes flyLeft {
+
+	/* FLY RIGHT */
+	--animate-fly-right: flyRight 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+		fadeIn 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+	--animate-fly-right-slow: flyRight 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+		fadeIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+	@keyframes flyRight {
 		0% {
 			opacity: 0;
 			transform: translateX(40px);
 		}
 		100% {
 			opacity: 1;
-			transform: translateX(0);
-		}
-	}
-	@keyframes flyOut {
-		0% {
-			opacity: 1;
 			transform: translateX(0px);
 		}
-		100% {
+	}
+
+	/* FLY UP */
+	--animate-fly-up: flyUp 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+		fadeIn 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+	--animate-fly-up-slow: flyUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+		fadeIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+	@keyframes flyUp {
+		0% {
 			opacity: 0;
-			transform: translateX(-40px);
+			transform: translateY(40px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0px);
 		}
 	}
+
+	/* FLY DOWN */
+	--animate-fly-down: flyDown 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+		fadeIn 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+	--animate-fly-down-slow: flyDown 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+		fadeIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+	@keyframes flyDown {
+		0% {
+			opacity: 0;
+			transform: translateY(-40px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0px);
+		}
+	}
+
+	/* FADE IN */
 	@keyframes fadeIn {
 		0% {
 			filter: blur(8px);
@@ -101,76 +116,6 @@
 			filter: blur(0px);
 		}
 	}
-	@keyframes fadeOut {
-		0% {
-			filter: blur(0px);
-		}
-		100% {
-			filter: blur(8px);
-		}
-	}
-	@keyframes flyUp {
-		0% {
-			opacity: 0;
-			transform: translateY(40px);
-		}
-		100% {
-			opacity: 1;
-			transform: translateX(0);
-		}
-	}
-	@keyframes flyDown {
-		0% {
-			opacity: 0;
-			transform: translateY(-40px);
-		}
-		100% {
-			opacity: 1;
-			transform: translateX(0);
-		}
-	}
-
-	/* --animate-fadeInUp: fadeInUp 0.5s;
-	--animate-fadeInUp-slow: fadeInUp 0.8s;
-	@keyframes fadeInUp {
-		0% {
-			filter: blur(12px);
-			opacity: 0;
-			transform: translateY(20%);
-		}
-		100% {
-			filter: blur(0px);
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-	--animate-blur-in: blur-in 1s;
-	@keyframes blur-in {
-		0% {
-			filter: blur(12px);
-			opacity: 0;
-		}
-		100% {
-			filter: blur(0px);
-			opacity: 1;
-		}
-	}
-	--animate-slide-in-focus-right: slide-in-focus-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-		both;
-	--animate-slide-in-focus-right-slow: slide-in-focus-right 0.8s
-		cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-	@keyframes slide-in-focus-right {
-		0% {
-			filter: blur(12px);
-			transform: translateX(-20%);
-			opacity: 0;
-		}
-		100% {
-			filter: blur(0px);
-			transform: translateX(0);
-			opacity: 1;
-		}
-	} */
 }
 
 // Daisyui Overrides
@@ -192,33 +137,5 @@
 .btn-ghost {
 	&:hover {
 		@apply border-transparent bg-neutral-300;
-	}
-}
-
-/* .btn:hover {
-	@apply border-transparent bg-neutral-300;
-} */
-
-/* .btn:focus {
-	@apply border-transparent bg-neutral-300;
-} */
-
-// Animations
-// TODO: Rewrite transitions using svelte
-@layer utilities {
-	@keyframes fadeInUp {
-		0% {
-			filter: blur(12px);
-			opacity: 0;
-			transform: translateY(20%);
-		}
-		100% {
-			filter: blur(0px);
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-	.fadeInUp {
-		animation: fadeInUp 0.8s;
 	}
 }
