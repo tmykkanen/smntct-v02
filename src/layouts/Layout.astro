@@ -1,5 +1,4 @@
 ---
-import DevHeader from '../components/DevHeader.astro';
 import FullscreenModal from '../components/FullscreenModal.astro';
 import Header from '../components/Header.astro';
 import '../style/global.css';
@@ -21,8 +20,8 @@ const anim = {
 	new: {
 		name: 'page-fade-up',
 		duration: '0.15s',
-		easing: 'cubic-bezier(0.18,0.89,0.32,1.27);',
-		delay: '0.225s'
+		easing: 'cubic-bezier(0.22,0.61,0.36,1);',
+		delay: '0.23s'
 	}
 };
 
@@ -37,6 +36,7 @@ const pageFadeUp = {
 	<head>
 		<meta charset='UTF-8' />
 		<meta name='viewport' content='width=device-width' />
+		<link rel='icon' href='/favicon.ico' sizes='any' />
 		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 		<meta name='generator' content={Astro.generator} />
 		<title>Southern MN TCT</title>
