@@ -61,7 +61,7 @@ if (fullscreen) {
       </div>`;
 			}
 
-			function createPopupContentTMP({ name, pastor, email, url }) {
+			function createPopupContent({ name, pastor, email, url }) {
 				return `
         <div>
           <h2 class='text-lg'>${name}</h2>
@@ -85,7 +85,10 @@ if (fullscreen) {
 			// Gospel Joy 44.1535996472263, -93.98025713443178
 
 			data.forEach((item) => {
-				L.marker(item.coords).bindPopup(createPopupContentTMP(item)).addTo(map);
+				console.log(item.data.lat);
+				L.marker([item.data.lat, item.data.long])
+					.bindPopup(createPopupContent(item.data))
+					.addTo(map);
 			});
 
 			let width = document.documentElement.clientWidth;

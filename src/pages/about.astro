@@ -2,8 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import mapData from '../data/mapData.js';
 import Map from '../components/Map.astro';
+
+import { getCollection } from 'astro:content';
+const churchMap = await getCollection('churchMap');
 ---
 
 <Layout>
-	<Map data={mapData} fullscreen />
+	<Map data={churchMap} fullscreen />
 </Layout>

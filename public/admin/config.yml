@@ -1,0 +1,33 @@
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: dev
+
+media_folder: 'public/images/uploads'
+
+collections:
+  - name: 'blog' # Used in routes, e.g., /admin/collections/blog
+    label: 'Blog' # Used in the UI
+    folder: 'src/content/blog' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in frontmatter
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - label: 'Partner Churches'
+    name: 'map'
+    folder: 'src/data/map'
+    create: true
+    slug: '{{name}}'
+    extension: json
+    format: json
+    fields:
+      - { label: Church, name: name, widget: string }
+      - { label: Pastor, name: pastor, widget: string }
+      - { label: Latitude, name: lat, widget: number, value_type: float }
+      - { label: Longitude, name: long, widget: number, value_type: float }
+      - { label: Email, name: email, widget: string }
+      - { label: Website, name: url, widget: string }
